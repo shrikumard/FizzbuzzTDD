@@ -11,16 +11,28 @@ public class Fizzbuzz {
             return input;
         }
 
-        if(inputNumber % 3 == 0 && inputNumber % 5 == 0) {
+        if(isNumberDivisibleBy3And5(inputNumber)) {
             return "fizzbuzz";
         }
-        if(inputNumber % 3 == 0) {
+        if(isNumberDivisibleBy3(inputNumber)) {
             return "fizz";
         }
-        if(inputNumber % 5 ==0) {
+        if(isNumberDivisibleBy5(inputNumber)) {
             return "buzz";
         }
 
         return "not fizzy or buzzy";
+    }
+
+    private boolean isNumberDivisibleBy5(int inputNumber) {
+        return inputNumber % 5 ==0;
+    }
+
+    private boolean isNumberDivisibleBy3(int inputNumber) {
+        return inputNumber % 3 == 0;
+    }
+
+    private boolean isNumberDivisibleBy3And5(int inputNumber) {
+        return isNumberDivisibleBy3(inputNumber) && isNumberDivisibleBy5(inputNumber);
     }
 }

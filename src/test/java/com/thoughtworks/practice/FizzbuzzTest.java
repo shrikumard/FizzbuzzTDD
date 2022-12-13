@@ -1,7 +1,7 @@
 package com.thoughtworks.practice;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -11,16 +11,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FizzbuzzTest {
 
-    private static final ByteArrayOutputStream err = new ByteArrayOutputStream();
-    private static final PrintStream originalErr = System.err;
+    private final ByteArrayOutputStream err = new ByteArrayOutputStream();
+    private final PrintStream originalErr = System.err;
 
-    @BeforeAll
-    public static void setStream() {
+    @BeforeEach
+    public void setStream() {
         System.setErr(new PrintStream(err));
     }
 
-    @AfterAll
-    public static void restoreStream() {
+    @AfterEach
+    public void restoreStream() {
         System.setErr(originalErr);
     }
 

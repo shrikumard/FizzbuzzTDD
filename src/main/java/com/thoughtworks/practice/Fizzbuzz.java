@@ -7,6 +7,7 @@ public class Fizzbuzz {
         try{
             inputNumber = Integer.parseInt(input);
         } catch (NumberFormatException numberFormatException) {
+            System.err.print("Provided Input is not a number");
             return input;
         }
 

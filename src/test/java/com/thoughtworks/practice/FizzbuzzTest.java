@@ -1,10 +1,28 @@
 package com.thoughtworks.practice;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class FizzbuzzTest {
+
+    private static final ByteArrayOutputStream err = new ByteArrayOutputStream();
+    private static final PrintStream originalErr = System.err;
+
+    @BeforeAll
+    public static void setStream() {
+        System.setErr(new PrintStream(err));
+    }
+
+    @AfterAll
+    public static void restoreStream() {
+        System.setErr(originalErr);
+    }
 
     @Test
     public void returnFizzIfInputNumberIsDivisibleBy3() {
@@ -49,5 +67,14 @@ class FizzbuzzTest {
         String response = fizzbuzz.makeFizzBuzz("sample");
 
         assertEquals("sample", response);
+    }
+
+    @Test
+    public void printErrorMessageInConsoleIfInputIsNotANumber() {
+        Fizzbuzz fizzbuzz = new Fizzbuzz();
+
+        fizzbuzz.makeFizzBuzz("sample");
+
+        assertEquals("Provided Input is not a number", err.toString());
     }
 }

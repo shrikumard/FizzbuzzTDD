@@ -23,4 +23,22 @@ class FizzbuzzTest {
 
         assertEquals("buzz", response);
     }
+
+    @Test
+    public void returnFizzBuzzIfInputNumberIsDivisibleBy5And3(){
+        Fizzbuzz fizzbuzz = new Fizzbuzz();
+
+        String response = fizzbuzz.makeFizzBuzz("15");
+
+        assertEquals("fizzbuzz", response);
+    }
+
+    @Test
+    public void returnNotFizzyOrBuzzyIfInputNumberNotDivisibleBy3Or5(){
+        Fizzbuzz fizzbuzz = new Fizzbuzz();
+
+        String response = fizzbuzz.makeFizzBuzz("4");
+
+        assertEquals("not fizzy or buzzy", response);
+    }
 }

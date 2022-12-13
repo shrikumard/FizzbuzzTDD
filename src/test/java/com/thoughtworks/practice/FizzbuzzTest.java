@@ -10,8 +10,17 @@ class FizzbuzzTest {
     public void returnFizzIfInputNumberIsDivisibleBy3() {
         Fizzbuzz fizzbuzz = new Fizzbuzz();
 
-        String response = fizzbuzz.makeFizzBuzz("2");
+        String response = fizzbuzz.makeFizzBuzz("3");
 
         assertEquals("fizz", response);
+    }
+
+    @Test
+    public void returnBuzzIfInputNumberIsDivisibleBy5() {
+        Fizzbuzz fizzbuzz = new Fizzbuzz();
+
+        String response = fizzbuzz.makeFizzBuzz("5");
+
+        assertEquals("buzz", response);
     }
 }

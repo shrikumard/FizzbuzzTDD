@@ -2,7 +2,13 @@ package com.thoughtworks.practice;
 
 public class Fizzbuzz {
     public String makeFizzBuzz(String input) {
-        int inputNumber = Integer.parseInt(input);
+        int inputNumber;
+
+        try{
+            inputNumber = Integer.parseInt(input);
+        } catch (NumberFormatException numberFormatException) {
+            return input;
+        }
 
         if(inputNumber % 3 == 0 && inputNumber % 5 == 0) {
             return "fizzbuzz";

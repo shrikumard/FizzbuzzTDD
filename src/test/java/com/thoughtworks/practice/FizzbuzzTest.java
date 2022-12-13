@@ -41,4 +41,13 @@ class FizzbuzzTest {
 
         assertEquals("not fizzy or buzzy", response);
     }
+
+    @Test
+    public void returnInputStringIfInputIsNotANumber() {
+        Fizzbuzz fizzbuzz = new Fizzbuzz();
+
+        String response = fizzbuzz.makeFizzBuzz("sample");
+
+        assertEquals("sample", response);
+    }
 }
